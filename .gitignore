@@ -1,3 +1,4 @@
 /.ipynb_checkpoints
 /data/RickAndMortyScripts.csv
 .DS_Store
+/data/.ipynb_checkpoints
