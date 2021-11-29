@@ -24,9 +24,18 @@ def personaje(temp):
     personaje = list(c.find(query2, projcharacter))
     return personaje
 
+
+
+
+'''
 #Query para sacar el personaje mas hablador segun la temporada.
 projmashablador = {'_id':0 , 'character': 1, 'Season':1}
 def mashablador(temp):
     query3 = {'Season': f'{temp}'}
+    #for i in a:
     mas = list(c.find(query3, projmashablador))
     return mas 
+'''
+
+
+

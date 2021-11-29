@@ -1,14 +1,16 @@
 from flask import Flask, request
 from flask import jsonify
-import src.Paraget as pg
-import src.Parapost as pp
+import s.Paraget as pg
+import s.Parapost as pp
 from pymongo import MongoClient
 
-app = Flask(__name__)
-connection = MongoClient('localhost', 27017)
-db = connection.get_database("ironhack")
-c = db.get_collection('4-proyecto')
 
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return 'inicio api'
 
 @app.route("/nuevafrase", methods=["POST"])
 def insertamensaje():
@@ -24,8 +26,10 @@ def todas(name):
     return jsonify(frases)
 
 
-
-
+@app.route("/personaje/<temp>")
+def person(temp):
+    persona = pg.personaje(temp)
+    return persona
 
 if __name__ == '__main__':
     app.run(debug = False)
