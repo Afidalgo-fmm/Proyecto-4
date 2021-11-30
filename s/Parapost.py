@@ -3,7 +3,6 @@ import pandas as pd
 import os 
 import json
 
-
 connection = MongoClient('localhost', 27017)
 db = connection.get_database("Ironhack")
 c = db.get_collection('proyecto')
@@ -13,8 +12,10 @@ df = pd.read_csv('/Users/alvaro/Downloads/IronHack/4-Proyecto/datos/Data.csv')
 records = json.loads(df.T.to_json()).values()
 c.insert_many(records)
 
-def insertar():
-    pass
+def insertar(info):
+    c.insert_one(info)
+    return info
+
 
 '''
 no me sirve

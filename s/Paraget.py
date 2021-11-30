@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import json
 client = MongoClient("localhost:27017")
-db = client.get_database("ironhack")
+db = client.get_database("Ironhack")
 c = db.get_collection('4-proyecto')
 
 #Necesito una funcion para sacar las temporadas de los personajes
@@ -11,7 +11,7 @@ c = db.get_collection('4-proyecto')
 # Necesito una funcionn que me saque las frases de los personajes
 projfrases = {'_id':0, 'character': 1, 'line': 1}
 def todas_frases(nombre):
-    query = {"character_name": f"{nombre}"}
+    query = {"character": f"{nombre}"}
     frases = list(c.find(query,projfrases)) # El ID hay que quitarlo si no, no voy a poder jsonizar y la api va a dar error
     return frases
 
